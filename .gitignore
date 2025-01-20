@@ -1,0 +1,176 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+// import React from 'react';
+// import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+// import { deletePost, git_users, updatePost } from './API/FetchApi';
+
+
+// const Users: React.FC = () => {
+//     const queryClient = useQueryClient();
+//   const { data, isLoading, isError, error } = useQuery({
+//     queryKey: ["users"],
+//     queryFn: git_users,
+//   });
+//  const deleteMutation = useMutation({
+//     mutationFn:(id)=> deletePost(id),
+//     onSuccess: (data,id) => {
+//         queryClient.setQueryData(["users"],(ele:any) => {
+//             return ele?.filter((user:any) => user.id !== id);
+
+//         })
+
+//     }
+    
+//   })
+
+//   // ? mutation function to update the post
+
+
+
+ 
+//   const updateMutation = useMutation({
+//     mutationFn: (id: string) => updatePost(id),
+//     onSuccess: (apiData, postId) => {
+//       queryClient.setQueryData(["users"], (postsData: any) => {
+//         return postsData?.map((user: any) => {
+         
+//           return user.id === postId
+//             ? { ...user, title: apiData.data.title }
+//             : user;
+//         });
+//       });
+//     },
+//   });
+
+
+//   if (isLoading) return <h2>Loading...</h2>;
+//   if (isError) return <h3>Error: {error.message || "Something went wrong!"}</h3>;
+
+//   return (
+//     <div>
+//       <h1>Fetch API Using Tanstack Query</h1>
+      
+      
+//       {data && data.length > 0 ? (
+//         <ul>
+//           {data.map((user: any) => (
+//             <li key={user.id}>
+//             <div className='card'>
+//               <img src={user.image} alt={user.login} width={50} />
+//               <h5>{user.title.slice(0,15)}</h5>
+//               <div>
+//                 <button onClick={()=>deleteMutation.mutate(user.id)}>
+//                     Remove 
+//                 </button>
+//                 <button onClick={()=>updateMutation.mutate(user.id)} className='update'>
+//                     Update
+//                 </button>
+//               </div>
+//               </div>
+//             </li>
+//           ))}
+//         </ul>
+//       ) : (
+//         <p>No users available</p>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default Users;
+
+
+// import React from 'react';
+// import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+// import { deletePost, git_users, updatePost } from './API/FetchApi';
+
+// const Users: React.FC = () => {
+//   const queryClient = useQueryClient();
+//   const { data, isLoading, isError, error } = useQuery({
+//     queryKey: ["users"],
+//     queryFn: git_users,
+//   });
+
+//   const deleteMutation = useMutation({
+//     mutationFn: (id: string) => deletePost(id),
+//     onSuccess: (data, id: string) => {
+//       queryClient.setQueryData(["users"], (ele: any) => {
+//         return ele?.filter((user: any) => user.id !== id);
+//       });
+//     },
+//   });
+
+
+//   const updateMutation = useMutation({
+//     mutationFn: (id: string) => updatePost(id),
+//     onSuccess: (apiData, postId: string) => {
+//       queryClient.setQueryData(["users"], (postsData: any) => {
+//         return postsData?.map((user: any) => {
+//           return user.id === postId
+//             ? { ...user, title: apiData.data.title } 
+//             : user;
+//         });
+//       });
+//     },
+//   });
+
+//   if (isLoading) return <h2>Loading...</h2>;
+//   if (isError) return <h3>Error: {error.message || "Something went wrong!"}</h3>;
+
+//   return (
+//     <div>
+//       <h1>Fetch API Using Tanstack Query</h1>
+
+//       {data && data.length > 0 ? (
+//         <ul>
+//           {data.map((user: any) => (
+//             <li key={user.id}>
+//               <div className="card">
+//                 <img src={user.image} alt={user.login} width={50} />
+//                 <h5>{user.title.slice(0, 15)}</h5>
+//                 <div>
+//                     <button onClick={() => deleteMutation.mutate(user.id)}>
+//                       Remove
+//                     </button>
+//                   <button
+//                     onClick={() => updateMutation.mutate(user.id)}
+//                     className="update"
+//                   >
+//                     Update
+//                   </button>
+               
+//                 </div>
+//               </div>
+//             </li>
+//           ))}
+//         </ul>
+//       ) : (
+//         <h2>No users available</h2>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default Users;
